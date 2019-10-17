@@ -7,5 +7,10 @@ package sub2;
  */
 
 public class InheritTest {
-
+	public static void main(String[] args) {
+		SalaryStudent ss = new SalaryStudent("장보고", 28, "성균관대학교", "장보기", "바다이야기");
+		
+		ss.hello();
+	}
+	
 }

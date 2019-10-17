@@ -1,14 +1,17 @@
 package sub2;
 
-public class Student {
+public class Student extends Person{
 
-	private String name;
-	private int age;
-	private String school;
-	private String major; 
+	protected String school;
+	protected String major; 
 
 	//»ý¼ºÀÚ
-	
+	public Student(String name, int age, String school, String major) {
+		super(name, age);
+		
+		this.school = school;
+		this.major = major;
+	}
 	
 	
 	public void hello() {
