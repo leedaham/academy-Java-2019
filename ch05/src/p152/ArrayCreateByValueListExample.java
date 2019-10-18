@@ -1,5 +1,5 @@
 package p152;
-
+//s
 public class ArrayCreateByValueListExample {
 	public static void main(String[] args) {
 		
