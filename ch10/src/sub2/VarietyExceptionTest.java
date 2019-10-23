@@ -3,7 +3,7 @@ package sub2;
 /*
 날짜 : 2019/10/22
 이름 : 이다함
-내용 : 다양한 예외처리 실습하가 /교재 p433
+내용 : 다양한 예외처리 실습하기 /교재 p433
  */
 
 public class VarietyExceptionTest {
