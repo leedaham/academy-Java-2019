@@ -19,7 +19,7 @@ public class AnonymousExample {
 				}
 				@Override
 				public void turnOff() {
-					System.out.println("SmartTV를 Rmq니다.");
+					System.out.println("SmartTV를 끕니다.");
 				}
 			}
 		);	
