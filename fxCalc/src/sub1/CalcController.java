@@ -31,6 +31,7 @@ public class CalcController implements Initializable{
 	int temp1 = 0;
 	int temp2 = 0;
 	int operator = 0;
+	boolean isFirst = true;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -44,7 +45,7 @@ public class CalcController implements Initializable{
 		btn6.setOnAction(event -> btn6Click());
 		btn7.setOnAction(event -> btn7Click());
 		btn8.setOnAction(event -> btn8Click());
-		btn9.setOnAction(event -> btn8Click());
+		btn9.setOnAction(event -> btn9Click());
 		btnPlus.setOnAction(event -> btnPlusClick());
 		btnMinus.setOnAction(event -> btnMinusClick());
 		btnMulti.setOnAction(event -> btnMultiClick());
@@ -54,36 +55,51 @@ public class CalcController implements Initializable{
 		
 	} //Initialize end
 	
-	public void btn0Click () {}
-	public void btn1Click () {
-		temp1 = 1;
-		txtDisp.setText("1");
+	public void setOperation(int type) {
+		
+		operator = type;
+		String getNum = txtDisp.getText();
+		temp1 = Integer.parseInt(getNum);
+		isFirst = true;
+		
 	}
-	public void btn2Click () {
-		temp2 = 2;
-		txtDisp.setText("2");
+	public void setNum(int num) {
+		if(isFirst) {
+			
+			txtDisp.setText(""+num);
+			
+			isFirst = false;
+		}else {
+			String getNum = txtDisp.getText();
+			String totNum = getNum + num;
+			
+			int cNum =  Integer.parseInt(totNum);
+			
+			txtDisp.setText(""+cNum);
+		}
 	}
-	public void btn3Click () {}
-	public void btn4Click () {}
-	public void btn5Click () {}
-	public void btn6Click () {}
-	public void btn7Click () {}
-	public void btn8Click () {}
 	
-	public void btnPlusClick () {
-		operator = 1;
-	}
-	public void btnMinusClick () {
-		operator = 2;
-	}
-	public void btnMultiClick () {
-		operator = 3;
-	}
-	public void btnDivClick () {
-		operator = 4;
-	}
+	public void btn0Click () {setNum(0);}
+	public void btn1Click () {setNum(1);}
+	public void btn2Click () {setNum(2);}
+	public void btn3Click () {setNum(3);}
+	public void btn4Click () {setNum(4);}
+	public void btn5Click () {setNum(5);}
+	public void btn6Click () {setNum(6);}
+	public void btn7Click () {setNum(7);}
+	public void btn8Click () {setNum(8);}
+	public void btn9Click () {setNum(9);}
+	
+	public void btnPlusClick	() {setOperation(1);}
+	public void btnMinusClick	() {setOperation(2);}
+	public void btnMultiClick	() {setOperation(3);}
+	public void btnDivClick		() {setOperation(4);}
 	
 	public void btnEqClick () {
+		
+		String getNum = txtDisp.getText();
+		temp2 = Integer.parseInt(getNum);
+		
 		int result = 0;
 		if(operator == 1) {
 			result = temp1 + temp2;
@@ -96,7 +112,11 @@ public class CalcController implements Initializable{
 		}
 		txtDisp.setText(""+result);
 	}
-	public void btnCancelClick () {}
-	
-	
+	public void btnCancelClick () {
+		temp1 = 0;
+		temp2 = 0;
+		operator = 0;
+		
+		txtDisp.setText("0");
+	}
 }
