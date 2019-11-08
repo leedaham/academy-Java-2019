@@ -1,5 +1,9 @@
 package p469;
 
+import java.util.Arrays;
+
+import p470.Car;
+
 public class Member {
 	public String name;
 	public int age;
@@ -16,16 +20,17 @@ public class Member {
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		//먼저 얕은 복사를 해서 name, age를 복제한다.
-		Member cloned = (Member)Super.clone();
+		Member cloned = (Member)super.clone();
 		//scores를 깊은 복제한다.
-		cloned.scores = Array.copyOf(this.scores, this.scores.length);
+		cloned.scores = Arrays.copyOf(this.scores, this.scores.length);
 		//car를 깊은 복제한다.
-		cloned.car = new Car(this,car.model);
+		cloned.car = new Car(this.car.model);
 		//깊은 복제된 Member 객체를 리턴
 		return cloned;
 	}
 	
 	public Member getMember() {
+		Member cloned = null;
 		try {
 			cloned = (Member) clone();
 		} catch (CloneNotSupportedException e) {
